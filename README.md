@@ -1,1 +1,1 @@
-# learn_bazel
+# Play Bazel
