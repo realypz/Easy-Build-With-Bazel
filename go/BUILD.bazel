@@ -1,0 +1,16 @@
+load("@rules_go//go:def.bzl", "go_binary", "go_library")
+
+go_library(
+    name = "libfoo",
+    srcs = ["foo.go"],
+)
+
+go_binary(
+    name = "hello_main",
+    srcs = [
+        "foo.go",
+        "my_main.go",
+    ],
+    visibility = ["//visibility:public"],
+    deps = [":libfoo"],
+)

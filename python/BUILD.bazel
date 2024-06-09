@@ -1,0 +1,14 @@
+py_library(
+    name = "libfoo_",
+    srcs = ["libfoo/foo.py"],
+    deps = [],
+)
+
+py_binary(
+    name = "main",
+    srcs = ["main.py"],
+    main = "main.py",
+    deps = [
+        ":libfoo_",
+    ],
+)
