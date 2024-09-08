@@ -1,5 +1,8 @@
+""" Your best Bazel introductory course """
+
 module(
-    name = "play_bazel",
+    name = "episode_00",
+    version = "0.0.1",
 )
 
 bazel_dep(name = "rules_rust", version = "0.45.1")

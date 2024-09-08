@@ -9,5 +9,5 @@ cc_binary(
     name = "main",
     srcs = ["main.cpp"],
     visibility = ["//visibility:public"],
-    deps = [":libfoo"],  # Can also use the full label "//cpp:foo"
+    deps = [":libfoo"],  # Can also use the full label "//cpp:libfoo", "libfoo"
 )

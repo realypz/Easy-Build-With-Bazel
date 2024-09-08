@@ -1,0 +1,200 @@
+@startuml bazel_knowledge_graph
+
+title "Bazel Knowledge Graph"
+
+skinparam rectangle<<desc>> {
+    backgroundColor Transparent
+    borderColor Transparent
+    titleFontColor Red
+    stereotypeFontColor Transparent
+}
+
+' skinparam Arrow {
+'     MessageAlignment left
+'     Thickness 3
+'     FontStyle Bold
+'     Color Blue
+' }
+
+package "How to write" as how_to_write {
+    component "Bazel File Structure" as bazel_file_structure {
+        component "MODULE.bazel" as module_bazel {
+        }
+
+        component "BUILD.bazel" as build_bazel {
+        }
+
+        component "*.bzl" as bzl_files {
+        }
+
+        [module_bazel] -[hidden]down- [build_bazel]
+        [build_bazel] -[hidden]down- [bzl_files]
+    }
+
+    component "Rules & Target" as rules_and_target {
+        component "Target" as [Target] {
+            ' [name, attrs, srcs, deps, visibility, etc.]
+        }
+        component "Rule" as [Rule] #LightPink
+        component "Aspect" as [Aspect]
+        component "Label" as [Label]
+        component "Source File" as [Source File]
+        component "Repository Rule" as [Repository Rule] #LightPink
+        component "Module Extension" as [Module Extension] #LightPink
+        component "Macro" as [Macro] #LightPink
+
+        [Label]  --> [Target] : is definition of
+        [Target] ---> [Source File] : can refer to
+        [Target] ---> [Rule] : "can be \ninstantiation of"
+        [Target] -[hidden]right- [Repository Rule]
+        [Target] -[hidden]left- [Module Extension]
+        ' [Rule] -[hidden]down- [Aspect]
+
+        [Label]  -[#red]---> [build_bazel]: "<color:red>can be referenced in</color>"
+        [Label] -[#red]---> [bzl_files]: "<color:red>can be referenced in</color>"
+
+        [Aspect] -[#green]--> [bzl_files]: <color:green>is defined in</color>
+
+        [Macro] -[#green]--> [bzl_files]: <color:green>is defined in</color>
+        [Macro] -[#LightSkyBlue]---> [build_bazel]: <color:LightSkyBlue>can be called in</color>
+
+        [Rule] -[#blue]--> [Macro] : <color:blue>can be instantiated\n <color:blue>as 'target' in</color>
+        [Rule] -[#green]--> [bzl_files]: <color:green>is defined in</color>
+        [Rule] -[#blue]--> [build_bazel]: <color:blue>can be instantiated\n <color:blue>as 'target' in</color>
+
+        [Repository Rule] -[#green]--> [bzl_files]: <color:green>is defined in</color>
+        [Repository Rule] -[#LightSkyBlue]-> [Module Extension]: "<color:LightSkyBlue>is invoked in the impl of</color>"
+
+        [Module Extension] -[#green]---> [bzl_files]: <color:green>is defined in</color>
+        [Module Extension] -[#Red]---> [module_bazel]: <color:Red>can be referenced in</color>
+    }
+
+    [bazel_file_structure] -[hidden]left- [rules_and_target]
+
+}
+
+package "API Reference Manual" as api_ref_manual {
+
+    component "Core Starlark Data Types"{
+        rectangle f0<<desc>> [
+            * bool
+            * dict
+            * float
+            * int
+            * list
+            * string
+            * range
+            * struct
+            * tuple
+            * ...
+
+            Ref: https://bazel.build/rules/lib/core
+        ]
+    }
+
+    component "Bazel Built-in Types" {
+        rectangle f1<<desc>> [
+            * actions
+            * Aspect
+            * ctx
+              * ctx.file
+              * ctx.actions
+              * ctx.attr
+              * ctx.executable
+              * ctx.file
+              * ctx.label
+            * depset
+            * File
+            * Label
+            * repository_rule
+            * ...
+
+            Ref: https://bazel.build/rules/lib/builtins
+        ]
+    }
+
+    component "Providers" {
+        rectangle f2<<desc>> [
+            * Provider
+            * ProviderInfo
+            * RuleInfo
+            * Target
+            * TargetInfo
+            * ...
+
+            Ref: https://bazel.build/rules/lib/providers
+        ]
+    }
+
+    component "Bazel Global Functions" {
+        rectangle f3<<in .bzl files>> [
+            * aspect
+            * depset
+            * module_extension
+            * repository_rule
+            * provider
+            * rule
+            * select
+            * ...
+        ]
+        rectangle f4<<in BUILD.bazel files>> [
+            * export_files
+            * glob
+            * select
+            * ...
+        ]
+        rectangle f5<<in MODULE.bazel files>> [
+            * bazel_dep
+            * git_override
+            * register_toolchains
+            * use_extension
+            * use_repo
+            * use_repo_rule
+            * ...
+        ]
+
+        rectangle f5_comment<<desc>> [
+            Ref: https://bazel.build/rules/lib/globals
+        ]
+    }
+
+    component "Bazel Rules" {
+        rectangle f6<<General Rules>> [
+            * alias
+            * config_setting
+            * filegroup
+            * genrule
+            * ...
+        ]
+
+        rectangle f7<<Platform and Toolchains>> [
+            * constraint_setting
+            * constraint_value
+            * platform
+            * toolchain
+            * toolchain_type
+            * ...
+        ]
+
+        rectangle f8<<Language Specific Rules>> [
+            * cc_library
+            * cc_binary
+            * cc_test
+            * py_binary
+            * sh_binary
+            * ...
+        ]
+
+        rectangle f8_comment<<desc>> [
+            Ref: https://bazel.build/reference/be/overview#rules
+        ]
+    }
+
+}
+note top of api_ref_manual
+    1. Type and a function can share the same name.
+        E.g. `depset` can be either a structure type or a function.
+    2. The capitalization of the name 
+end note
+
+@enduml

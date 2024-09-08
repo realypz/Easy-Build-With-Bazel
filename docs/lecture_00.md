@@ -1,4 +1,10 @@
-# Lecture 0. Getting Start
+# Lecture 0. Introduction
+
+## Goal
+
+1. Intitively know how to write Bazel files, how to build and run with simple examples.
+1. Introduce the concepts, e.g. rule, target, repository rule with a richer example.
+1. Introduce the how the Bazel APIs are organized and where to search them.
 
 ## Install Bazel
 
@@ -12,7 +18,6 @@ Alternatively, you can install [Bazelisk](https://github.com/bazelbuild/bazelisk
 
 ```shell
 ├── MODULE.bazel
-├── README.md
 ├── cpp
 │   ├── BUILD.bazel
 │   ├── libfoo
@@ -76,7 +81,9 @@ Alternatively, you can install [Bazelisk](https://github.com/bazelbuild/bazelisk
 
 ## Basic Commands
 
-**OBS:** You can use both `bazel` and `bazelisk` in the command line. `bazelisk` will invoke the latest version, or the [specified bazel version for your project](https://github.com/bazelbuild/bazelisk?tab=readme-ov-file#how-does-bazelisk-know-which-bazel-version-to-run).
+**OBS:** You can use either `bazel` or `bazelisk` in the command line. `bazelisk` will invoke the latest version, or the [specified bazel version for your project](https://github.com/bazelbuild/bazelisk?tab=readme-ov-file#how-does-bazelisk-know-which-bazel-version-to-run).
+
+This tutorial will use `bazelisk` everywhere.
 
 1. Build target(s)
 
