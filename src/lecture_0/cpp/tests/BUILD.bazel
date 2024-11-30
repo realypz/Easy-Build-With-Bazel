@@ -1,0 +1,8 @@
+cc_test(
+    name = "testfoo",
+    srcs = ["test_foo.cpp"],
+    deps = [
+        "//cpp:libfoo",
+        "@googletest//:gtest_main",
+    ],
+)

@@ -1,0 +1,13 @@
+cc_library(
+    name = "libfoo",
+    srcs = ["libfoo/foo.cpp"],  # Can also use the full label "//cpp:libfoo/foo.cpp"
+    hdrs = ["libfoo/foo.h"],
+    visibility = ["//visibility:public"],
+)
+
+cc_binary(
+    name = "main",
+    srcs = ["main.cpp"],
+    visibility = ["//visibility:public"],
+    deps = [":libfoo"],  # Can also use the full label "//cpp:libfoo", "libfoo"
+)

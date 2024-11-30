@@ -1,0 +1,14 @@
+load("//shell:greeting.bzl", "greeting_binary_macro", "print_in_shell")
+
+print_in_shell(
+    name = "earth",
+    text = "Goodnight from Earth!",
+    visibility = ["//visibility:public"],
+)
+
+greeting_binary_macro(
+    name = "jupyter",
+    greeting = "Hello",
+    plannet = "jupyter",
+    visibility = ["//visibility:public"],
+)
