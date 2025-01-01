@@ -1,0 +1,8 @@
+cc_test(
+    name = "fmt_version_test",
+    srcs = ["test.cpp"],
+    deps = [
+        "//:fmt_version",
+        "@googletest//:gtest_main",
+    ],
+)

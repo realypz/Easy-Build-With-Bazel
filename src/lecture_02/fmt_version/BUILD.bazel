@@ -1,0 +1,9 @@
+cc_library(
+    name = "fmt_version",
+    srcs = ["src/fmt_version.cpp"],
+    hdrs = ["fmt_version.hpp"],
+    visibility = ["//visibility:public"],
+    deps = [
+        "@fmt",
+    ],
+)
