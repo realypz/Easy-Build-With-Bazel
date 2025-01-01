@@ -1,0 +1,11 @@
+"""Lecture 02 - Repo fmt_version - MODULE.bazel"""
+
+# ++++++ Declare Module ++++++
+module(
+    name = "fmt_version",
+    version = "0.0.0",
+)
+
+# ++++++ Declare the dependencies of this module ++++++
+bazel_dep(name = "fmt", version = "10.2.0")
+bazel_dep(name = "googletest", version = "1.15.2")

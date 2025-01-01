@@ -1,0 +1,13 @@
+"""Lecture 02 - repo_b1 - MODULE.bazel"""
+
+module(
+    name = "repo_b1",
+    version = "0.0.0",
+)
+
+bazel_dep(name = "fmt", version = "11.0.2")
+bazel_dep(name = "fmt_version", version = "0.0.0")
+local_path_override(
+    module_name = "fmt_version",
+    path = "../fmt_version",
+)

@@ -1,0 +1,25 @@
+"""Lecture 02 - format_tools - MODULE.bazel"""
+
+# ++++++ Declare Module ++++++
+module(
+    name = "format_tools",
+    version = "0.0.0",
+)
+
+# ++++++ Enable the following content when needed ++++++
+buildifier_extension_simple = use_extension(
+    "//bazel_buildifier:module_extension.bzl",
+    "buildifier_module_ext_simple",
+)
+use_repo(buildifier_extension_simple, "buildifier")
+
+buildifier_extension = use_extension(
+    "//bazel_buildifier:module_extension.bzl",
+    "buildifier_module_ext_complex",
+)
+buildifier_extension.initialize(
+    repo_name = "buildifier_f1",
+)
+buildifier_extension.initialize(
+    repo_name = "buildifier_x1",
+)

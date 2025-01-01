@@ -1,0 +1,25 @@
+"""
+Workspace file for fmt_version 
+
+WARNING: This file is only for illustration purposes.
+         WORKSPACE is a legacy way to load Bazel extensions,
+         and by default not work with Bazel 8 and higher versions.
+
+         Please use MODULE.bazel instead.
+"""
+
+workspace(name = "repo_x")
+
+load("@bazel_tools//tools/build_defs/repo:local.bzl", "local_repository")
+
+local_repository(
+    name = "format_tools",
+    path = "../format_tools",
+)
+
+load("@format_tools//bazel_buildifier:repo_rule.bzl", "buildifier_repo")
+
+buildifier_repo(
+    name = "buildifier",
+    executable_name = "buildifier",
+)
