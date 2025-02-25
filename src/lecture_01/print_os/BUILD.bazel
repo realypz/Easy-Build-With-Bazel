@@ -1,0 +1,12 @@
+load("//print_os:os_info.bzl", "os_info")
+
+os_info(
+    name = "osinfo",
+    output_file = "os_info_printout.txt",
+)
+
+cc_binary(
+    name = "print_os",
+    srcs = ["print_os.cpp"],
+    data = [":osinfo"],
+)

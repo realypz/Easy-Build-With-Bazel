@@ -1,0 +1,10 @@
+cc_library(
+    name = "os_info",
+    srcs =
+        select({
+            "@platforms//os:osx": ["os_info_darwin.cpp"],
+            "@platforms//os:linux": ["os_info_linux.cpp"],
+        }),
+    hdrs = ["os_info.hpp"],
+    visibility = ["//visibility:public"],
+)

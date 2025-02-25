@@ -1,0 +1,14 @@
+cc_binary(
+    name = "hello_boss",
+    srcs = ["hello_boss.cpp"],
+    cxxopts = [
+        "-std=c++23",
+        "-O2",
+    ],
+    defines = ["GREETING_BOSS"],
+    includes = ["internal"],
+    deps = [
+        "//cpp/internal:os_info",
+        "@fmt",
+    ],
+)
