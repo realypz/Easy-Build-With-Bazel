@@ -1,0 +1,10 @@
+""" Your best Bazel introductory course """
+
+module(
+    name = "lecture_01",
+    version = "0.0.0",
+)
+
+bazel_dep(name = "googletest", version = "1.15.2")
+bazel_dep(name = "fmt", version = "11.0.2")
+bazel_dep(name = "platforms", version = "0.0.10")
