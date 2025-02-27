@@ -1,0 +1,8 @@
+""" Lecture 03 module """
+
+module(
+    name = "lecture_03",
+    version = "0.0.0",
+)
+
+bazel_dep(name = "platforms", version = "0.0.11")

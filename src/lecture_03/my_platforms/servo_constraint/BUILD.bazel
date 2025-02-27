@@ -1,0 +1,15 @@
+constraint_setting(
+    name = "servo_constraint",
+)
+
+constraint_value(
+    name = "real",
+    constraint_setting = ":servo_constraint",
+    visibility = ["//visibility:public"],
+)
+
+constraint_value(
+    name = "simulated",
+    constraint_setting = ":servo_constraint",
+    visibility = ["//visibility:public"],
+)
