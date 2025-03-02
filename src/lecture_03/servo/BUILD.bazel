@@ -1,0 +1,28 @@
+cc_library(
+    name = "real_servo",
+    srcs = ["real/servo.cc"],
+    hdrs = ["servo.hpp"],
+    target_compatible_with = [
+        "//my_platforms/servo_constraint:real",
+    ],
+    visibility = [":__pkg__"],
+)
+
+cc_library(
+    name = "simulated_servo",
+    srcs = ["simulated/servo.cc"],
+    hdrs = ["servo.hpp"],
+    target_compatible_with = [
+        "//my_platforms/servo_constraint:simulated",
+    ],
+    visibility = [":__pkg__"],
+)
+
+alias(
+    name = "servo",
+    actual = select({
+        "//my_platforms/servo_constraint:real": ":real_servo",
+        "//conditions:default": ":simulated_servo",
+    }),
+    visibility = ["//visibility:public"],
+)
