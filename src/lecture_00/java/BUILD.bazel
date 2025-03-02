@@ -1,14 +1,11 @@
 java_library(
     name = "foo",
     srcs = ["libfoo/Foo.java"],
+    visibility = ["//visibility:__subpackages__"],
 )
 
 java_binary(
-    name = "MyFirstJavaProgram",  # The target name must match the class name where main() is defined.
-    srcs = [
-        "hello_world.java",
-    ],
-    deps = [
-        ":foo",
-    ],
+    name = "MyFirstJavaProgram",
+    srcs = ["hello_world.java"],
+    deps = [":foo"],
 )
