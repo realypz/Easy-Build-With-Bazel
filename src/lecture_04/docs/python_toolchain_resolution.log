@@ -1,0 +1,76 @@
+-> % bazelisk run //python:ex1 --toolchain_resolution_debug='@bazel_tools//tools/python:toolchain_type'
+Starting local Bazel server (8.2.1) and connecting to it...
+INFO: ToolchainResolution:   Rejected toolchain @@rules_python++python+python_3_8_aarch64-apple-darwin//:python_runtimes; mismatching config settings: _0000_python_3_8_aarch64-apple-darwin_3.8.20_1
+      ToolchainResolution:   Rejected toolchain @@rules_python++python+python_3_8_aarch64-unknown-linux-gnu//:python_runtimes; mismatching config settings: _0000_python_3_8_aarch64-unknown-linux-gnu_3.8.20_1
+      ToolchainResolution:   Rejected toolchain @@rules_python++python+python_3_8_x86_64-apple-darwin//:python_runtimes; mismatching config settings: _0000_python_3_8_x86_64-apple-darwin_3.8.20_1
+      ToolchainResolution:   Rejected toolchain @@rules_python++python+python_3_8_x86_64-pc-windows-msvc//:python_runtimes; mismatching config settings: _0000_python_3_8_x86_64-pc-windows-msvc_3.8.20_1
+      ToolchainResolution:   Rejected toolchain @@rules_python++python+python_3_8_x86_64-unknown-linux-gnu//:python_runtimes; mismatching config settings: _0000_python_3_8_x86_64-unknown-linux-gnu_3.8.20_1
+      ToolchainResolution:   Rejected toolchain @@rules_python++python+python_3_9_aarch64-apple-darwin//:python_runtimes; mismatching config settings: _0001_python_3_9_aarch64-apple-darwin_3.9.20_1
+      ToolchainResolution:   Rejected toolchain @@rules_python++python+python_3_9_aarch64-unknown-linux-gnu//:python_runtimes; mismatching config settings: _0001_python_3_9_aarch64-unknown-linux-gnu_3.9.20_1
+      ToolchainResolution:   Rejected toolchain @@rules_python++python+python_3_9_ppc64le-unknown-linux-gnu//:python_runtimes; mismatching config settings: _0001_python_3_9_ppc64le-unknown-linux-gnu_3.9.20_1
+      ToolchainResolution:   Rejected toolchain @@rules_python++python+python_3_9_s390x-unknown-linux-gnu//:python_runtimes; mismatching config settings: _0001_python_3_9_s390x-unknown-linux-gnu_3.9.20_1
+      ToolchainResolution:   Rejected toolchain @@rules_python++python+python_3_9_x86_64-apple-darwin//:python_runtimes; mismatching config settings: _0001_python_3_9_x86_64-apple-darwin_3.9.20_1
+      ToolchainResolution:   Rejected toolchain @@rules_python++python+python_3_9_x86_64-pc-windows-msvc//:python_runtimes; mismatching config settings: _0001_python_3_9_x86_64-pc-windows-msvc_3.9.20_1
+      ToolchainResolution:   Rejected toolchain @@rules_python++python+python_3_9_x86_64-unknown-linux-gnu//:python_runtimes; mismatching config settings: _0001_python_3_9_x86_64-unknown-linux-gnu_3.9.20_1
+      ToolchainResolution:   Rejected toolchain @@rules_python++python+python_3_10_aarch64-apple-darwin//:python_runtimes; mismatching config settings: _0002_python_3_10_aarch64-apple-darwin_3.10.15_1
+      ToolchainResolution:   Rejected toolchain @@rules_python++python+python_3_10_aarch64-unknown-linux-gnu//:python_runtimes; mismatching config settings: _0002_python_3_10_aarch64-unknown-linux-gnu_3.10.15_1
+      ToolchainResolution:   Rejected toolchain @@rules_python++python+python_3_10_ppc64le-unknown-linux-gnu//:python_runtimes; mismatching config settings: _0002_python_3_10_ppc64le-unknown-linux-gnu_3.10.15_1
+      ToolchainResolution:   Rejected toolchain @@rules_python++python+python_3_10_s390x-unknown-linux-gnu//:python_runtimes; mismatching config settings: _0002_python_3_10_s390x-unknown-linux-gnu_3.10.15_1
+      ToolchainResolution:   Rejected toolchain @@rules_python++python+python_3_10_x86_64-apple-darwin//:python_runtimes; mismatching config settings: _0002_python_3_10_x86_64-apple-darwin_3.10.15_1
+      ToolchainResolution:   Rejected toolchain @@rules_python++python+python_3_10_x86_64-pc-windows-msvc//:python_runtimes; mismatching config settings: _0002_python_3_10_x86_64-pc-windows-msvc_3.10.15_1
+      ToolchainResolution:   Rejected toolchain @@rules_python++python+python_3_10_x86_64-unknown-linux-gnu//:python_runtimes; mismatching config settings: _0002_python_3_10_x86_64-unknown-linux-gnu_3.10.15_1
+      ToolchainResolution:   Rejected toolchain @@rules_python++python+python_3_12_aarch64-apple-darwin//:python_runtimes; mismatching config settings: _0003_python_3_12_aarch64-apple-darwin_3.12.7_1
+      ToolchainResolution:   Rejected toolchain @@rules_python++python+python_3_12_aarch64-unknown-linux-gnu//:python_runtimes; mismatching config settings: _0003_python_3_12_aarch64-unknown-linux-gnu_3.12.7_1
+      ToolchainResolution:   Rejected toolchain @@rules_python++python+python_3_12_ppc64le-unknown-linux-gnu//:python_runtimes; mismatching config settings: _0003_python_3_12_ppc64le-unknown-linux-gnu_3.12.7_1
+      ToolchainResolution:   Rejected toolchain @@rules_python++python+python_3_12_s390x-unknown-linux-gnu//:python_runtimes; mismatching config settings: _0003_python_3_12_s390x-unknown-linux-gnu_3.12.7_1
+      ToolchainResolution:   Rejected toolchain @@rules_python++python+python_3_12_x86_64-apple-darwin//:python_runtimes; mismatching config settings: _0003_python_3_12_x86_64-apple-darwin_3.12.7_1
+      ToolchainResolution:   Rejected toolchain @@rules_python++python+python_3_12_x86_64-pc-windows-msvc//:python_runtimes; mismatching config settings: _0003_python_3_12_x86_64-pc-windows-msvc_3.12.7_1
+      ToolchainResolution:   Rejected toolchain @@rules_python++python+python_3_12_x86_64-unknown-linux-gnu//:python_runtimes; mismatching config settings: _0003_python_3_12_x86_64-unknown-linux-gnu_3.12.7_1
+      ToolchainResolution: Performing resolution of @@bazel_tools//tools/python:toolchain_type for target platform @@platforms//host:host
+      ToolchainResolution:   Toolchain @@rules_python++python+python_3_11_aarch64-apple-darwin//:python_runtimes is compatible with target platform, searching for execution platforms:
+      ToolchainResolution:     Compatible execution platform @@platforms//host:host
+      ToolchainResolution:   All execution platforms have been assigned a @@bazel_tools//tools/python:toolchain_type toolchain, stopping
+      ToolchainResolution: Recap of selected @@bazel_tools//tools/python:toolchain_type toolchains for target platform @@platforms//host:host:
+      ToolchainResolution:   Selected @@rules_python++python+python_3_11_aarch64-apple-darwin//:python_runtimes to run on execution platform @@platforms//host:host
+INFO: ToolchainResolution:   Rejected toolchain @@rules_python++python+python_3_8_aarch64-apple-darwin//:python_runtimes; mismatching config settings: _0000_python_3_8_aarch64-apple-darwin_3.8.20_1
+      ToolchainResolution:   Rejected toolchain @@rules_python++python+python_3_8_aarch64-unknown-linux-gnu//:python_runtimes; mismatching config settings: _0000_python_3_8_aarch64-unknown-linux-gnu_3.8.20_1
+      ToolchainResolution:   Rejected toolchain @@rules_python++python+python_3_8_x86_64-apple-darwin//:python_runtimes; mismatching config settings: _0000_python_3_8_x86_64-apple-darwin_3.8.20_1
+      ToolchainResolution:   Rejected toolchain @@rules_python++python+python_3_8_x86_64-pc-windows-msvc//:python_runtimes; mismatching config settings: _0000_python_3_8_x86_64-pc-windows-msvc_3.8.20_1
+      ToolchainResolution:   Rejected toolchain @@rules_python++python+python_3_8_x86_64-unknown-linux-gnu//:python_runtimes; mismatching config settings: _0000_python_3_8_x86_64-unknown-linux-gnu_3.8.20_1
+      ToolchainResolution:   Rejected toolchain @@rules_python++python+python_3_9_aarch64-apple-darwin//:python_runtimes; mismatching config settings: _0001_python_3_9_aarch64-apple-darwin_3.9.20_1
+      ToolchainResolution:   Rejected toolchain @@rules_python++python+python_3_9_aarch64-unknown-linux-gnu//:python_runtimes; mismatching config settings: _0001_python_3_9_aarch64-unknown-linux-gnu_3.9.20_1
+      ToolchainResolution:   Rejected toolchain @@rules_python++python+python_3_9_ppc64le-unknown-linux-gnu//:python_runtimes; mismatching config settings: _0001_python_3_9_ppc64le-unknown-linux-gnu_3.9.20_1
+      ToolchainResolution:   Rejected toolchain @@rules_python++python+python_3_9_s390x-unknown-linux-gnu//:python_runtimes; mismatching config settings: _0001_python_3_9_s390x-unknown-linux-gnu_3.9.20_1
+      ToolchainResolution:   Rejected toolchain @@rules_python++python+python_3_9_x86_64-apple-darwin//:python_runtimes; mismatching config settings: _0001_python_3_9_x86_64-apple-darwin_3.9.20_1
+      ToolchainResolution:   Rejected toolchain @@rules_python++python+python_3_9_x86_64-pc-windows-msvc//:python_runtimes; mismatching config settings: _0001_python_3_9_x86_64-pc-windows-msvc_3.9.20_1
+      ToolchainResolution:   Rejected toolchain @@rules_python++python+python_3_9_x86_64-unknown-linux-gnu//:python_runtimes; mismatching config settings: _0001_python_3_9_x86_64-unknown-linux-gnu_3.9.20_1
+      ToolchainResolution:   Rejected toolchain @@rules_python++python+python_3_10_aarch64-apple-darwin//:python_runtimes; mismatching config settings: _0002_python_3_10_aarch64-apple-darwin_3.10.15_1
+      ToolchainResolution:   Rejected toolchain @@rules_python++python+python_3_10_aarch64-unknown-linux-gnu//:python_runtimes; mismatching config settings: _0002_python_3_10_aarch64-unknown-linux-gnu_3.10.15_1
+      ToolchainResolution:   Rejected toolchain @@rules_python++python+python_3_10_ppc64le-unknown-linux-gnu//:python_runtimes; mismatching config settings: _0002_python_3_10_ppc64le-unknown-linux-gnu_3.10.15_1
+      ToolchainResolution:   Rejected toolchain @@rules_python++python+python_3_10_s390x-unknown-linux-gnu//:python_runtimes; mismatching config settings: _0002_python_3_10_s390x-unknown-linux-gnu_3.10.15_1
+      ToolchainResolution:   Rejected toolchain @@rules_python++python+python_3_10_x86_64-apple-darwin//:python_runtimes; mismatching config settings: _0002_python_3_10_x86_64-apple-darwin_3.10.15_1
+      ToolchainResolution:   Rejected toolchain @@rules_python++python+python_3_10_x86_64-pc-windows-msvc//:python_runtimes; mismatching config settings: _0002_python_3_10_x86_64-pc-windows-msvc_3.10.15_1
+      ToolchainResolution:   Rejected toolchain @@rules_python++python+python_3_10_x86_64-unknown-linux-gnu//:python_runtimes; mismatching config settings: _0002_python_3_10_x86_64-unknown-linux-gnu_3.10.15_1
+      ToolchainResolution:   Rejected toolchain @@rules_python++python+python_3_12_aarch64-apple-darwin//:python_runtimes; mismatching config settings: _0003_python_3_12_aarch64-apple-darwin_3.12.7_1
+      ToolchainResolution:   Rejected toolchain @@rules_python++python+python_3_12_aarch64-unknown-linux-gnu//:python_runtimes; mismatching config settings: _0003_python_3_12_aarch64-unknown-linux-gnu_3.12.7_1
+      ToolchainResolution:   Rejected toolchain @@rules_python++python+python_3_12_ppc64le-unknown-linux-gnu//:python_runtimes; mismatching config settings: _0003_python_3_12_ppc64le-unknown-linux-gnu_3.12.7_1
+      ToolchainResolution:   Rejected toolchain @@rules_python++python+python_3_12_s390x-unknown-linux-gnu//:python_runtimes; mismatching config settings: _0003_python_3_12_s390x-unknown-linux-gnu_3.12.7_1
+      ToolchainResolution:   Rejected toolchain @@rules_python++python+python_3_12_x86_64-apple-darwin//:python_runtimes; mismatching config settings: _0003_python_3_12_x86_64-apple-darwin_3.12.7_1
+      ToolchainResolution:   Rejected toolchain @@rules_python++python+python_3_12_x86_64-pc-windows-msvc//:python_runtimes; mismatching config settings: _0003_python_3_12_x86_64-pc-windows-msvc_3.12.7_1
+      ToolchainResolution:   Rejected toolchain @@rules_python++python+python_3_12_x86_64-unknown-linux-gnu//:python_runtimes; mismatching config settings: _0003_python_3_12_x86_64-unknown-linux-gnu_3.12.7_1
+      ToolchainResolution: Performing resolution of @@bazel_tools//tools/python:toolchain_type for target platform @@platforms//host:host
+      ToolchainResolution:   Toolchain @@rules_python++python+python_3_11_aarch64-apple-darwin//:python_runtimes is compatible with target platform, searching for execution platforms:
+      ToolchainResolution:     Compatible execution platform @@platforms//host:host
+      ToolchainResolution:   All execution platforms have been assigned a @@bazel_tools//tools/python:toolchain_type toolchain, stopping
+      ToolchainResolution: Recap of selected @@bazel_tools//tools/python:toolchain_type toolchains for target platform @@platforms//host:host:
+      ToolchainResolution:   Selected @@rules_python++python+python_3_11_aarch64-apple-darwin//:python_runtimes to run on execution platform @@platforms//host:host
+INFO: Analyzed target //python:ex1 (75 packages loaded, 3094 targets configured).
+INFO: Found 1 target...
+Target //python:ex1 up-to-date:
+  bazel-bin/python/ex1
+INFO: Elapsed time: 4.800s, Critical Path: 0.17s
+INFO: 5 processes: 5 internal.
+INFO: Build completed successfully, 5 total actions
+INFO: Running command line: bazel-bin/python/ex1
+Original numbers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+Squared numbers: [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
