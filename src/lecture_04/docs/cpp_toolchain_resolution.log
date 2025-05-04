@@ -1,0 +1,20 @@
+-> % bazelisk run //cpp:ex0 --toolchain_resolution_debug="@bazel_tools//tools/cpp:toolchain_type"
+Starting local Bazel server (8.2.0) and connecting to it...
+INFO: ToolchainResolution: Performing resolution of @@bazel_tools//tools/cpp:toolchain_type for target platform @@platforms//host:host
+      ToolchainResolution:   Rejected toolchain @@rules_cc++cc_configure_extension+local_config_cc//:cc-compiler-armeabi-v7a; mismatching values: armv7, android
+      ToolchainResolution:   Toolchain @@rules_cc++cc_configure_extension+local_config_cc//:cc-compiler-darwin_arm64 is compatible with target platform, searching for execution platforms:
+      ToolchainResolution:     Compatible execution platform @@platforms//host:host
+      ToolchainResolution:   All execution platforms have been assigned a @@bazel_tools//tools/cpp:toolchain_type toolchain, stopping
+      ToolchainResolution: Recap of selected @@bazel_tools//tools/cpp:toolchain_type toolchains for target platform @@platforms//host:host:
+      ToolchainResolution:   Selected @@rules_cc++cc_configure_extension+local_config_cc//:cc-compiler-darwin_arm64 to run on execution platform @@platforms//host:host
+INFO: ToolchainResolution: Target platform @@platforms//host:host: Selected execution platform @@platforms//host:host, type @@bazel_tools//tools/cpp:toolchain_type -> toolchain @@rules_cc++cc_configure_extension+local_config_cc//:cc-compiler-darwin_arm64
+INFO: Analyzed target //c++:ex0 (67 packages loaded, 476 targets configured).
+INFO: Found 1 target...
+Target //c++:ex0 up-to-date:
+  bazel-bin/c++/ex0
+INFO: Elapsed time: 5.317s, Critical Path: 0.50s
+INFO: 9 processes: 7 internal, 2 darwin-sandbox.
+INFO: Build completed successfully, 9 total actions
+INFO: Running command line: bazel-bin/c++/ex0
+Clang version: 17.0.0 (clang-1700.0.13.3)
+Sorted vector: 1 2 3 5 8 

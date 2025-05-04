@@ -1,0 +1,4 @@
+py_binary(
+    name = "ex1",
+    srcs = ["ex1.py"],
+)

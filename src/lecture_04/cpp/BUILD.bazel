@@ -1,0 +1,5 @@
+cc_binary(
+    name = "ex0",
+    srcs = ["ex0.cpp"],
+    defines = ["COMPILER_PATH=\\\"$(CC)\\\""],
+)

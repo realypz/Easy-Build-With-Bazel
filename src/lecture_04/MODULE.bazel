@@ -1,0 +1,38 @@
+""" Lecture 04 module """
+
+module(
+    name = "lecture_04",
+    version = "0.0.0",
+)
+
+bazel_dep(name = "bazel_skylib", version = "1.7.1")
+bazel_dep(name = "platforms", version = "0.0.11")
+bazel_dep(name = "rules_cc", version = "0.1.1")
+
+# Registered a toolchain in the root module.
+register_toolchains(
+    "//llvm_toolchain/darwin:homebrew_llvm",
+)
+
+bazel_dep(name = "rules_python", version = "1.3.0")
+
+python = use_extension("@rules_python//python/extensions:python.bzl", "python")
+
+# Register a toolchain in the root module.
+# register_toolchains(
+#     "//python_toolchain:host_builtin_python",
+# )
+
+# Read @rules_python's MODULE file to find how to use a specific python version and pip
+# PY_VERSION = "3.13"
+# PY_VERSION_UNERSCORE = PY_VERSION.replace(".", "_")
+# python.toolchain(
+#     is_default = True,
+#     python_version = PY_VERSION,
+# )
+# use_repo(
+#     python,
+#     "python_" + PY_VERSION_UNERSCORE,
+#     "pythons_hub",
+#     python = "python_versions",
+# )

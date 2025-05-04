@@ -1,0 +1,70 @@
+"""C++ toolchain for Apple Silicon Darwin (macOS) using LLVM installed by Homebrew."""
+
+load(
+    "@bazel_tools//tools/cpp:unix_cc_toolchain_config.bzl",
+    "cc_toolchain_config",
+)
+load(
+    ":toolchain_config.bzl",
+    "LLVM_TOOLCHAIN_DICT",
+)
+
+# cc_toolchain_config can be found in:
+# * https://github.com/bazelbuild/rules_cc/blob/main/cc/private/toolchain/cc_toolchain_config.bzl  ???
+# * https://github.com/bazelbuild/rules_cc/blob/main/cc/private/toolchain/unix_cc_toolchain_config.bzl
+cc_toolchain_config(
+    name = "homebrew_llvm.darwin-aarch64.config",
+    abi_libc_version = LLVM_TOOLCHAIN_DICT["abi_libc_version"],
+    abi_version = LLVM_TOOLCHAIN_DICT["abi_version"],
+    archive_flags = LLVM_TOOLCHAIN_DICT["archive_flags"],
+    builtin_sysroot = LLVM_TOOLCHAIN_DICT["builtin_sysroot"],
+    compile_flags = LLVM_TOOLCHAIN_DICT["compile_flags"],
+    compiler = LLVM_TOOLCHAIN_DICT["compiler"],
+    coverage_compile_flags = LLVM_TOOLCHAIN_DICT["coverage_compile_flags"],
+    coverage_link_flags = LLVM_TOOLCHAIN_DICT["coverage_link_flags"],
+    cpu = LLVM_TOOLCHAIN_DICT["cpu"],
+    cxx_builtin_include_directories = LLVM_TOOLCHAIN_DICT["cxx_builtin_include_directories"],
+    cxx_flags = LLVM_TOOLCHAIN_DICT["cxx_flags"],
+    dbg_compile_flags = LLVM_TOOLCHAIN_DICT["dbg_compile_flags"],
+    host_system_name = LLVM_TOOLCHAIN_DICT["host_system_name"],
+    link_flags = LLVM_TOOLCHAIN_DICT["link_flags"],
+    link_libs = LLVM_TOOLCHAIN_DICT["link_libs"],
+    opt_compile_flags = LLVM_TOOLCHAIN_DICT["opt_compile_flags"],
+    opt_link_flags = LLVM_TOOLCHAIN_DICT["opt_link_flags"],
+    supports_start_end_lib = LLVM_TOOLCHAIN_DICT["supports_start_end_lib"],
+    target_libc = LLVM_TOOLCHAIN_DICT["target_libc"],
+    target_system_name = LLVM_TOOLCHAIN_DICT["target_system_name"],
+    tool_paths = LLVM_TOOLCHAIN_DICT["tool_paths"],
+    toolchain_identifier = "homebrew_llvm.darwin-aarch64.config.identifier",
+    unfiltered_compile_flags = LLVM_TOOLCHAIN_DICT["unfiltered_compile_flags"],
+)
+
+filegroup(name = "empty")
+
+cc_toolchain(
+    name = "homebrew_llvm.darwin-aarch64",
+    all_files = ":empty",
+    compiler_files = ":empty",
+    dwp_files = ":empty",
+    linker_files = ":empty",
+    objcopy_files = ":empty",
+    strip_files = ":empty",
+    supports_param_files = 0,
+    toolchain_config = "homebrew_llvm.darwin-aarch64.config",
+    toolchain_identifier = "homebrew_llvm.darwin-aarch64.config.identifier",
+)
+
+toolchain(
+    name = "homebrew_llvm",
+    exec_compatible_with = [
+        "@platforms//cpu:aarch64",
+        "@platforms//os:macos",
+    ],
+    target_compatible_with = [
+        "@platforms//cpu:aarch64",
+        "@platforms//os:macos",
+    ],
+    toolchain = ":homebrew_llvm.darwin-aarch64",
+    toolchain_type = "@bazel_tools//tools/cpp:toolchain_type",
+    visibility = ["//visibility:public"],
+)
