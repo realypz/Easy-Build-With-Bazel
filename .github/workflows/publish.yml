@@ -1,0 +1,52 @@
+name: Publish Zipped Folders to Release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  zip-and-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Step 2: Set up a zip utility
+      - name: Set up zip utility
+        run: sudo apt-get install -y zip
+
+      # Step 3: Zip each folder in the src directory
+      - name: Zip folders in src
+        run: |
+          mkdir -p zipped
+          for folder in src/*; do
+            if [ -d "$folder" ]; then
+              folder_name=$(basename "$folder")
+              zip -r "zipped/${folder_name}.zip" "$folder"
+            fi
+          done
+
+      # Step 4: Create a release
+      - name: Create GitHub Release
+        id: create_release
+        uses: actions/create-release@v1
+        with:
+          tag_name: ${{ github.sha }}
+          release_name: "Release for Commit ${{ github.sha }}"
+          body: "This release contains zipped folders from the src directory."
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Step 5: Upload zipped files to the release
+      - name: Upload Release Assets
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: zipped/
+          asset_name: zipped
+          asset_content_type: application/zip
